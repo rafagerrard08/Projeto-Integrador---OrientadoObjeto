@@ -6,4 +6,4 @@ Integrantes  do   grupo:
 Beatriz  Almeida,
 Maria Carolina,
 Rafael Ferraz,
-Thiago  Gilabel,
+Thiago  Gilabel.
