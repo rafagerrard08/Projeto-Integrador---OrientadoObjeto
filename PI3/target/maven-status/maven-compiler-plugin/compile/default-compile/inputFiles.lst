@@ -1,4 +1,5 @@
 C:\Users\Bia\Desktop\PI3\src\main\java\AlterarProdutoServlet.java
+C:\Users\Bia\Desktop\PI3\src\main\java\ExcluirVendaServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\Produto.java
 C:\Users\Bia\Desktop\PI3\src\main\java\ListaProdutoServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\CadastrarProdutoServlet.java
@@ -6,11 +7,13 @@ C:\Users\Bia\Desktop\PI3\src\main\java\AlterarClienteServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\ExcluirProdutoServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\BancoDados.java
 C:\Users\Bia\Desktop\PI3\src\main\java\Conexao.java
+C:\Users\Bia\Desktop\PI3\src\main\java\ListaVendaServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\Loja.java
 C:\Users\Bia\Desktop\PI3\src\main\java\CadastrarVendaServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\Venda.java
 C:\Users\Bia\Desktop\PI3\src\main\java\Cliente.java
 C:\Users\Bia\Desktop\PI3\src\main\java\FormasPgto.java
+C:\Users\Bia\Desktop\PI3\src\main\java\RelatorioServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\CadastrarClienteServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\ExcluirClienteServlet.java
 C:\Users\Bia\Desktop\PI3\src\main\java\ListaClienteServlet.java

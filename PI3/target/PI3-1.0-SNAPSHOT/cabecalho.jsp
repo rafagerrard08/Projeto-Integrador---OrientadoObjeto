@@ -51,8 +51,10 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarVenda">
                                     <li><a class="dropdown-item" href="/PI3/CadastrarVendaServlet">Registrar</a></li>
+                                    <li><a class="dropdown-item" href="/PI3/ListaVendaServlet">Listar</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="/PI3/RelatorioServlet">Relatorio</a></li>
                         </ul>
                     </div>
               </div>

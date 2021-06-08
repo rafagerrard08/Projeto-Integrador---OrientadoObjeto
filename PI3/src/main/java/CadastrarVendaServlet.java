@@ -49,19 +49,12 @@ public class CadastrarVendaServlet extends HttpServlet {
             throws ServletException, IOException {
             
                 String nomeVendedor = request.getParameter("nomeVendedor");
-                System.out.println("nomeVendedor:" + nomeVendedor);
                 Integer id_cliente = Integer.parseInt( request.getParameter("cliente") );
-                System.out.println("id_cliente:" + id_cliente);
                 Integer id_loja = Integer.parseInt( request.getParameter("loja") );
-                System.out.println("id_loja:" + id_loja);
                 Integer id_produto = Integer.parseInt( request.getParameter("produto") );
-                System.out.println("id_produto:" + id_produto);
                 String valor = request.getParameter("valor_produto");
-                System.out.println("valor:" + valor);
                 String desconto = request.getParameter("desconto");
-                System.out.println("desconto:" + desconto);
                 Integer formaPagamento = Integer.parseInt( request.getParameter("formas_pgto") );
-                System.out.println("formaPagamento:" + formaPagamento);
                 
                 Venda venda = new Venda( nomeVendedor, id_cliente, id_loja, id_produto, Double.parseDouble(valor), Double.parseDouble(desconto), formaPagamento );
                

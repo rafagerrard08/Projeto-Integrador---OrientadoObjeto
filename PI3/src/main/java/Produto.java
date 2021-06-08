@@ -14,13 +14,14 @@ public class Produto {
     private String categoria;
     private String cor;
     private String marca;
-
-    public Produto( int id_loja, String nome, int qtd_produto, Double valor, String categoria, String cor, String marca) {
+    private int id_categoria;
+    
+    public Produto( int id_loja, String nome, int qtd_produto, Double valor, int id_categoria, String cor, String marca) {
         this.id_loja = id_loja;
         this.nome = nome;
         this.qtd_produto = qtd_produto;
         this.valor = valor;
-        this.categoria = categoria;
+        this.id_categoria = id_categoria;
         this.cor = cor;
         this.marca = marca;
     }

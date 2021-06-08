@@ -55,7 +55,11 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Categoria</label>
                     <div class="col-sm-10">
-                        <input type="text" name="categoria" required="true" class="form-control" required/>
+                        <select class="form-select" id="loja" name="id_categoria">
+                                <c:forEach var="cat" items="${listaCategorias}">
+                                    <option value="${cat.idBanco}">${cat.nome}</option>
+                                </c:forEach>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">

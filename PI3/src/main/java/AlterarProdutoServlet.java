@@ -29,13 +29,13 @@ public class AlterarProdutoServlet extends HttpServlet {
         String nome = request.getParameter("nome");
         Integer qtd_produto = Integer.parseInt(request.getParameter("qtd_produto"));
         Double valor = Double.parseDouble(request.getParameter("valor"));
-        String categoria = request.getParameter("categoria");
+        Integer id_categoria = Integer.parseInt( request.getParameter("id_categoria") );
         String cor = request.getParameter("cor");
         String marca = request.getParameter("marca");
 
         Integer id_produto = Integer.parseInt(idProdutoAtual);
         
-        Produto produto = new Produto( id_loja, nome, qtd_produto, valor, categoria, cor, marca );
+        Produto produto = new Produto( id_loja, nome, qtd_produto, valor, id_categoria, cor, marca );
         produto.setId_produto( id_produto );
         
         boolean ok = BancoDados.atualizarProduto(produto);

@@ -12,10 +12,13 @@ public class CadastrarProdutoServlet extends HttpServlet {
             throws ServletException, IOException {
 
         List<Loja> listaLoja;
+        List<CategoriaProduto> listaCategorias;
 
         listaLoja = BancoDados.getLoja();
+        listaCategorias = BancoDados.getCategorias();
         
         request.setAttribute("listaLoja", listaLoja);
+        request.setAttribute("listaCategorias", listaCategorias);
 
         request.getRequestDispatcher("/Produto/Cadastro.jsp").forward(request, response);
     }
@@ -27,11 +30,11 @@ public class CadastrarProdutoServlet extends HttpServlet {
                 Double valor = Double.parseDouble(request.getParameter("valor"));
                 Integer qtd_produto = Integer.parseInt(request.getParameter("qtd_produto"));
                 String nome = request.getParameter("nome");
-                String categoria = request.getParameter("categoria");
+                Integer id_categoria = Integer.parseInt( request.getParameter("id_categoria") );
                 String cor = request.getParameter("cor");
                 String marca = request.getParameter("marca");
         //PASSO 2 - INSERIR O CLIENTE NO BD
-        Produto produto = new Produto( id_loja, nome, qtd_produto, valor, categoria, cor, marca);
+        Produto produto = new Produto( id_loja, nome, qtd_produto, valor, id_categoria, cor, marca);
         boolean ok = BancoDados.cadastrarProduto(produto);
 
         // PASSO 3 - REDIRECIONAR PARA TELA DE SUCESSO/ERRO

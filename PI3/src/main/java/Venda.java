@@ -1,3 +1,4 @@
+import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +15,9 @@ public class Venda {
     private double desconto;
     private int id_formaPagamento;
     private int idBanco;
-    
+    private Date data_venda;
+    private String nome_loja;
+    private String nome_produto;
     
     public Venda( String nomeVendedor, int id_cliente, int id_loja, int id_produto, double valor, double desconto,
             int id_formaPagamento ) {
