@@ -1,3 +1,10 @@
+create table USUARIO
+(
+	ID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1),
+	USUARIO VARCHAR(500) not null,
+	SENHA VARCHAR(500) not null
+)
+
 create table CLIENTE
 (
 	ID INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1),

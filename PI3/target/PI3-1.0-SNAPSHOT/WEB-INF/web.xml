@@ -51,6 +51,14 @@
         <servlet-name>RelatorioServlet</servlet-name>
         <servlet-class>RelatorioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrarUsuarioServlet</servlet-name>
+        <servlet-class>RegistrarUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListaClienteServlet</servlet-name>
         <url-pattern>/ListaClienteServlet</url-pattern>
@@ -98,6 +106,14 @@
     <servlet-mapping>
         <servlet-name>RelatorioServlet</servlet-name>
         <url-pattern>/RelatorioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrarUsuarioServlet</servlet-name>
+        <url-pattern>/RegistrarUsuarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

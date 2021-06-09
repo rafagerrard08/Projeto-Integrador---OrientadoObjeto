@@ -8,8 +8,65 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class BancoDados {
 
+    public static int registar( String usuario, String senha ){
+        int id = 0;
+        String query = "INSERT INTO USUARIO( USUARIO, SENHA ) VALUES( ?, ? )";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            
+            String geradoSenha = BCrypt.gensalt();
+            String senhaCrypt = BCrypt.hashpw( usuario, geradoSenha);
+            
+            ps.setString(1, usuario);
+            ps.setString(2, senhaCrypt);
+            
+            ps.executeUpdate( );
+            
+            id = login( usuario, senha );
+        } catch (SQLException ex) {
+            Logger.getLogger(BancoDados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
+    public static int login( String usuario, String senha ){
+        int id = 0;
+        String query = "SELECT * FROM USUARIO WHERE USUARIO = ?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            
+            String geradoSenha = BCrypt.gensalt();
+            String senhaCrypt = BCrypt.hashpw( usuario, geradoSenha);
+            
+            ps.setString(1, usuario);
+            
+            System.out.println("senhaCrypt:"+ senhaCrypt);
+                    
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                String senhaCripto = rs.getString("SENHA");
+                
+                if (BCrypt.checkpw(senha, senhaCripto)) {
+                    id = rs.getInt("ID");
+                } else {
+                    id = 0;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BancoDados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
    public static List<Loja> getLoja() {
         List<Loja> ljs = new ArrayList<>();
         String query = "select * from LOJA";

@@ -14,6 +14,31 @@
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="jquery/jquery-3.6.0.min.js"></script>
 	<script src="bootstrap/js/bootstrap.bundle.js"></script>
+        <script>
+            function getCookie(cookieName) {
+                let cookie = {};
+                document.cookie.split(';').forEach(function(el) {
+                    let [key,value] = el.split('=');
+                    cookie[key.trim()] = value;
+              })
+              return cookie[cookieName];
+            }
+            
+            $(document).ready(function() {
+                var coks = getCookie( "userID" );
+                if( coks == null ||
+                    coks <= 0 ){
+                    var url = "login.jsp";
+                    $(location).attr('href',url);
+                }
+            });
+            
+            function logout(){
+                document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                var url = "login.jsp";
+                $(location).attr('href',url);
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -56,6 +81,9 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/PI3/RelatorioServlet">Relatorio</a></li>
                         </ul>
+                        <div class="d-flex">
+                            <button class="btn btn-outline-secondary" type="submit" onclick="logout()">Logout</button>
+			</div>
                     </div>
               </div>
             </nav>

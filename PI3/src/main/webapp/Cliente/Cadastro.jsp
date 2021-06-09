@@ -15,6 +15,7 @@
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../jquery/jquery-3.6.0.min.js"></script>
 	<script src="../bootstrap/js/bootstrap.bundle.js"></script>
+        
     </head>
     <body class="container">
         <c:import url="../cabecalho.jsp"/>
