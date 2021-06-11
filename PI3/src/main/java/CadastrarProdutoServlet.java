@@ -18,8 +18,20 @@ public class CadastrarProdutoServlet extends HttpServlet {
         listaCategorias = BancoDados.getCategorias();
         
         request.setAttribute("listaLoja", listaLoja);
+        /*Setado direto no banco, rodar script: 
+        INSERT INTO LOJA( NOME ) VALUES( 'BRMT MATRIZ' );
+        INSERT INTO LOJA( NOME ) VALUES( 'BRMT FILIAL 1' );*/
+        
         request.setAttribute("listaCategorias", listaCategorias);
-
+        /*Setado direto no banco, rodar script: 
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'COZINHA' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'SALA' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'ESCRITORIO' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'BANHEIRO' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'ELETRONICOS' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'ELETRODOMESTICOS' );
+        INSERT INTO CATEGORIA_PRODUTO( NOME ) VALUES( 'VARIEDADES' );*/
+        
         request.getRequestDispatcher("/Produto/Cadastro.jsp").forward(request, response);
     }
     
@@ -27,7 +39,7 @@ public class CadastrarProdutoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 Integer id_loja = Integer.parseInt(request.getParameter("loja"));
-                Double valor = Double.parseDouble(request.getParameter("valor"));
+                Double valor = Double.parseDouble(request.getParameter("valor").replace( ',', '.'));
                 Integer qtd_produto = Integer.parseInt(request.getParameter("qtd_produto"));
                 String nome = request.getParameter("nome");
                 Integer id_categoria = Integer.parseInt( request.getParameter("id_categoria") );

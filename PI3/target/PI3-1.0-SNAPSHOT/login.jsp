@@ -21,7 +21,7 @@
                 alert( "${msgErro}" );
             });
         </c:if>
-        
+        //GERENCIAMENTO DE SESSÃO (USADO COOKIES) 
         function getCookie(cookieName) {
             let cookie = {};
             document.cookie.split(';').forEach(function(el) {
@@ -30,7 +30,7 @@
           })
           return cookie[cookieName];
         }
-
+        
         $(document).ready(function() {
             var coks = getCookie( "userID" );
             if( coks != null &&

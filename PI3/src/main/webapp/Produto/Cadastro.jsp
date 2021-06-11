@@ -19,7 +19,7 @@
     <body class="container">
         <c:import url="../cabecalho.jsp"/>
         <br>
-        <c:if test="${empty cliente}">
+        <c:if test="${empty produto}">
         <h3>Cadastro de Produto</h3>
         <br>
         <div class="border border-1 rounded">    
@@ -27,6 +27,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Loja</label>
                     <div class="col-sm-10">
+                       <!--Setado no banco, rodar script presente no CadastrarProdutoServlet*-->
                         <select class="form-select" id="loja" name="loja">
                                 <c:forEach var="lj" items="${listaLoja}">
                                     <option value="${lj.id}">${lj.nome}</option>
@@ -54,6 +55,8 @@
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Categoria</label>
+                    
+                    <!--Setado no banco, rodar script presente no CadastrarProdutoServlet*-->
                     <div class="col-sm-10">
                         <select class="form-select" id="loja" name="id_categoria">
                                 <c:forEach var="cat" items="${listaCategorias}">
@@ -79,15 +82,26 @@
             </form>
         </div>
         </c:if>
-        <c:if test="${not empty cliente}">
-        <h3>Alteração de Clientes</h3>
+        <c:if test="${not empty produto}">
+        <h3>Alteração de Produto</h3>
         <br>
         <div class="border border-1 rounded">    
-            <form class="p-4" action="../AlterarProdutoServlet" method="POST">
+            <form class="p-4" action="/PI3/AlterarProdutoServlet" method="POST">
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">Id da loja</label>
+                    <label class="col-sm-2 col-form-label">Loja</label>
                     <div class="col-sm-10">
-                        <input type="text" name="id_loja" required="true" class="form-control" value="${produto.id_loja}" required/>
+                        <select class="form-select" id="loja" name="id_loja">
+                                <c:forEach var="lj" items="${listaLoja}">
+                                    <c:choose>
+                                        <c:when test="${lj.id == produto.id_loja}">
+                                            <option value="${lj.id}" selected>${lj.nome}</option>
+                                        </c:when>    
+                                        <c:otherwise>
+                                            <option value="${lj.id}">${lj.nome}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -111,7 +125,18 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Categoria</label>
                     <div class="col-sm-10">
-                        <input type="text" name="categoria" required="true" class="form-control" value="${produto.categoria}" required/>
+                        <select class="form-select" id="loja" name="id_categoria">
+                                <c:forEach var="cat" items="${listaCategorias}">
+                                    <c:choose>
+                                        <c:when test="${cat.idBanco == produto.id_categoria}">
+                                            <option value="${cat.idBanco}" selected>${cat.nome}</option>
+                                        </c:when>    
+                                        <c:otherwise>
+                                            <option value="${cat.idBanco}">${cat.nome}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -126,9 +151,9 @@
                         <input type="text" name="marca" required="true" class="form-control" value="${produto.marca}" required/>
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Atualizar</button>
-            </form>            
+                
+                <button type="submit" class="btn btn-primary">Alterar</button>
+            </form>
         </div>
         </c:if>
         <br/>

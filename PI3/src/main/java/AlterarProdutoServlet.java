@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,18 @@ public class AlterarProdutoServlet extends HttpServlet {
         String id = request.getParameter("id");
         idProdutoAtual = id;
         Integer id_produto = Integer.parseInt(id);
-                
+        List<Loja> listaLoja;
+        List<CategoriaProduto> listaCategorias;
+        
         Produto produto = BancoDados.getProduto(id_produto);
+        listaLoja = BancoDados.getLoja();
+        listaCategorias = BancoDados.getCategorias();
+        
         request.setAttribute("produto", produto);
-
+        request.setAttribute("listaLoja", listaLoja);
+        request.setAttribute("listaCategorias", listaCategorias);
+        
         request.getRequestDispatcher("/Produto/Cadastro.jsp").forward(request, response);
-
     }
 
     @Override
@@ -28,7 +35,7 @@ public class AlterarProdutoServlet extends HttpServlet {
         Integer id_loja = Integer.parseInt(request.getParameter("id_loja"));
         String nome = request.getParameter("nome");
         Integer qtd_produto = Integer.parseInt(request.getParameter("qtd_produto"));
-        Double valor = Double.parseDouble(request.getParameter("valor"));
+        Double valor = Double.parseDouble(request.getParameter("valor").replace( ',', '.'));
         Integer id_categoria = Integer.parseInt( request.getParameter("id_categoria") );
         String cor = request.getParameter("cor");
         String marca = request.getParameter("marca");

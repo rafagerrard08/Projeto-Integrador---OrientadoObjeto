@@ -21,7 +21,7 @@
                 alert( "${msgErro}" );
             });
         </c:if>
-        
+        //pegar Cookies do Browser passando o nome dele
         function getCookie(cookieName) {
             let cookie = {};
             document.cookie.split(';').forEach(function(el) {

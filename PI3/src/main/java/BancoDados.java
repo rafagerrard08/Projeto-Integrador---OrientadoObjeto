@@ -471,7 +471,7 @@ public class BancoDados {
 
     public static boolean atualizarProduto(Produto produto) {
         boolean ok = true;
-        String query = "UPDATE PRODUTO SET ID_LOJA=?, NOME=?, QTD_PRODUTO=?, VALOR=?, CATEGORIA=?, COR=?, MARCA=? WHERE ID=?";
+        String query = "UPDATE PRODUTO SET ID_LOJA=?, NOME=?, QTD_PRODUTO=?, VALOR=?, ID_CATEGORIA_PRODUTO=?, COR=?, MARCA=? WHERE ID=?";
         Connection con;
         try {
             con = Conexao.getConexao();
@@ -480,7 +480,7 @@ public class BancoDados {
             ps.setString(2, produto.getNome());
             ps.setInt(3, produto.getQtd_produto());
             ps.setDouble(4, produto.getValor());
-            ps.setString(5, produto.getCategoria());
+            ps.setInt(5, produto.getId_categoria());
             ps.setString(6, produto.getCor());
             ps.setString(7, produto.getMarca());
             ps.setInt(8, produto.getId_produto());

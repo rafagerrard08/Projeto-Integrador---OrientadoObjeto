@@ -1,7 +1,9 @@
 <%-- 
-    Document   : Cadastro
-    Created on : 06/06/2021, 19:26:58
-    Author     : Bia
+    Rodar script no banco:
+    INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'DEBITO' );
+    INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'CREDITO A VISTA' );
+    INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'PARCELADO EM 2 VEZES' );
+    INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'PARCELADO EM 3 VEZES' );
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

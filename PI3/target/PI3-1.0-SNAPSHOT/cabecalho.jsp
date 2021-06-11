@@ -23,7 +23,7 @@
               })
               return cookie[cookieName];
             }
-            
+            //FUNCAO PARA SE O USUARIO NAO ESTA LOGADO, SER REDIRECIONADO PARA A PAG DE LOGIN
             $(document).ready(function() {
                 var coks = getCookie( "userID" );
                 if( coks == null ||
@@ -32,7 +32,7 @@
                     $(location).attr('href',url);
                 }
             });
-            
+            //FUNCAO PARA LOGOUT 
             function logout(){
                 document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
                 var url = "login.jsp";
@@ -79,7 +79,7 @@
                                     <li><a class="dropdown-item" href="/PI3/ListaVendaServlet">Listar</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="/PI3/RelatorioServlet">Relatorio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/PI3/RelatorioServlet">Relatório</a></li>
                         </ul>
                         <div class="d-flex">
                             <button class="btn btn-outline-secondary" type="submit" onclick="logout()">Logout</button>

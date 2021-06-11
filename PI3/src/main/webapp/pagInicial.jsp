@@ -14,6 +14,7 @@
     </head>
     <body>
     <c:import url="cabecalho.jsp"/>
-        <h1>Bem vindo ao sistema BRMT</h1>
+        <br>
+        <h1 style="text-align:center">Bem vindo ao sistema BRMT</h1>
     </body>
 </html>

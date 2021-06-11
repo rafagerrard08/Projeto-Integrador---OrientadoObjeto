@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CadastrarVendaServlet extends HttpServlet {
-
+    /*  Rodar Script no banco: 
+        INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'DEBITO' );
+        INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'CREDITO A VISTA' );
+        INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'PARCELADO EM 2 VEZES' );
+        INSERT INTO FORMA_PGTO( FORMA ) VALUES( 'PARCELADO EM 3 VEZES' );*/
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,7 +60,7 @@ public class CadastrarVendaServlet extends HttpServlet {
                 String desconto = request.getParameter("desconto");
                 Integer formaPagamento = Integer.parseInt( request.getParameter("formas_pgto") );
                 
-                Venda venda = new Venda( nomeVendedor, id_cliente, id_loja, id_produto, Double.parseDouble(valor), Double.parseDouble(desconto), formaPagamento );
+                Venda venda = new Venda( nomeVendedor, id_cliente, id_loja, id_produto, Double.parseDouble(valor.replace( ',', '.')), Double.parseDouble(desconto.replace( ',', '.')), formaPagamento );
                
                 boolean ok = BancoDados.cadastrarVenda(venda);
              
